@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>API Sandbox</title>
+</head>
+<body>
+  <h1>API Sandbox</h1>
+  <br><br>
+<button id="getJson">Get IT GURL</button>
+<div id="name"></div>
+<script>
+  document.getElementById('getJson').addEventListener('click', getJson);
+
+function getJson() { 
+  let url2 = 'https://pokeapi.co/api/v2/pokemon/2/'
+  let url = 'https://jsonplaceholder.typicode.com/users';
+  fetch(url2).then((response) => {
+    return response.json();
+  })
+  .then(function(data){
+    let name = data.forms[0].name;
+    
+    document.getElementById('name').innerHTML = name;
+  })
+}
+</script>
+</body>
+</html>
